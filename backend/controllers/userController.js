@@ -31,7 +31,7 @@ exports.login = (req, res, next) => {
             if (!valid) {
               res.status(401).json({ message: "Identifiant ou mot de passe incorrecte" });
             } else {
-              res.status(200).json({ userId: user._id, token: jwt.sign({ userId: user._id }, "2D5815741D64B4DC81C53C0210DEBC3B92BF72FC77CCE83F61E85FBAA5200285", { expiresIn: "24h" }) });
+              res.status(200).json({ userId: user._id, token: jwt.sign({ userId: user._id }, process.env.tokenKey, { expiresIn: "24h" }) });
             }
           })
           .catch((error) => res.status(500).json({ error }));

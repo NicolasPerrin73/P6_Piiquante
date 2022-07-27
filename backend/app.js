@@ -1,3 +1,5 @@
+const dotenv = require("dotenv").config();
+
 const express = require("express");
 
 const app = express();
@@ -11,7 +13,7 @@ const path = require("path");
 
 mongoose
   .connect(
-    "mongodb+srv://NicolasPerrin:AH286ft73@p6-database.dz0syxe.mongodb.net/?retryWrites=true&w=majority",
+    process.env.mongoDB,
 
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
