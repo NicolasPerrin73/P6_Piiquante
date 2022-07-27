@@ -1,16 +1,17 @@
+// Module
 const dotenv = require("dotenv").config();
-
 const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
 
+// Express
 const app = express();
 
-const mongoose = require("mongoose");
-
+//Route file
 const userRoutes = require("./routes/userRoute");
 const sauceRoute = require("./routes/saucesRoute");
 
-const path = require("path");
-
+// Mongoose database connection
 mongoose
   .connect(
     process.env.mongoDB,
@@ -22,6 +23,7 @@ mongoose
 
 app.use(express.json());
 
+// Cors header
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization");
@@ -29,6 +31,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//Endpoint
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/auth", userRoutes);
 app.use("/api/sauces", sauceRoute);

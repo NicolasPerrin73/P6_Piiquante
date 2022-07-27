@@ -1,7 +1,9 @@
+//Module
 const bcrypt = require("bcrypt");
 const userModels = require("../models/userModels");
 const jwt = require("jsonwebtoken");
 
+// User sign up function
 exports.signup = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10)
