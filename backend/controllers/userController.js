@@ -20,6 +20,7 @@ exports.signup = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
+//User Log in function
 exports.login = (req, res, next) => {
   userModels
     .findOne({ email: req.body.email })
