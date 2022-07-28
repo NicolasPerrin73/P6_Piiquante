@@ -14,7 +14,7 @@ Create a new folder for the project.
 
 On this folder, create a folder "frontend" and copy and past the front-end repositorie inside.
 
-Create a folder "backend" and copy and past the back-end repositorie inside.
+copy and past "backend" folder inside project folder.
 
 Open the project.
 
@@ -63,4 +63,3 @@ tokenKey="Your_Secret_Token_Key"
 $ nodemon server
 
 Done!
-
